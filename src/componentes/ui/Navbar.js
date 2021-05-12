@@ -1,7 +1,14 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
+
+
 
 export const Navbar = () => {
+
+
+    const validGrupos = ['Hamburguesas', 'Papas', 'Pizzas', 'Lomos'];
+
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             
@@ -11,51 +18,23 @@ export const Navbar = () => {
             >
                 El Buen Sabor
             </Link>
-
+           
+           
             <div className="navbar-collapse">
                 <div className="navbar-nav">
+                    {
+                    validGrupos.map(grupo => (
+                      <NavLink 
+                        activeClassName="active"
+                        className="nav-item nav-link" 
+                        exact
+                        to={grupo}
+                    >
+                        {grupo}
+                    </NavLink> )  )
+}
 
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/lomos"
-                    >
-                        Lomos
-                    </NavLink>
-
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/pizzas"
-                    >
-                        Pizzas
-                    </NavLink>
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/burgers"
-                    >
-                        Hamburguesas
-                    </NavLink>
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/papas"
-                    >
-                        Papas Fritas
-                    </NavLink>
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/bebidas"
-                    >
-                        Bebidas
-                    </NavLink>
+                    
                 </div>
             </div>
 

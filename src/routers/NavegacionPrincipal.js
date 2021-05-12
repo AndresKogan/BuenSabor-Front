@@ -1,10 +1,8 @@
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router'
-import BebidaScreen from '../componentes/BebidaScreen'
-import BurgerScreen from '../componentes/BurgerScreen'
-import LomoScreen from '../componentes/LomoScreen'
-import PapasScreen from '../componentes/PapasScreen'
-import PizzaScreen from '../componentes/PizzaScreen'
+
+import ComidaScreen from '../componentes/ComidaScreen'
+
 import PlatoScreen from '../componentes/platos/PlatoScreen'
 import { SearchScreen } from '../componentes/search/SearchScreen'
 
@@ -17,11 +15,8 @@ const NavegacionPrincipal = () => {
             <div className="container mt-2">
 
                 <Switch>
-                    <Route exact path="/lomos" component={LomoScreen} />
-                    <Route exact path="/burgers" component={BurgerScreen} />
-                    <Route exact path="/pizzas" component={PizzaScreen} />
-                    <Route exact path="/papas" component={PapasScreen} />
-                    <Route exact path="/bebidas" component={BebidaScreen} />
+         
+                    <Route exact path="/:comida" component={ComidaScreen}/>
                     <Route exact path="/plato/:platoId" component={PlatoScreen} />
                     <Route exact path="/search" component={SearchScreen}/>
 
