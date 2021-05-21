@@ -5,7 +5,10 @@ import {
   Route,
 } from "react-router-dom";
 import LoginScreen from "../componentes/login/LoginScreen";
+import NavegacionCocinero from "./NavegacionCocinero";
+
 import NavegacionPrincipal from "./NavegacionPrincipal";
+
 
 
 const AppRouter = () => {
@@ -13,7 +16,9 @@ const AppRouter = () => {
     <Router>
       <div>
         <Switch>
+          
           <Route exact path="/login" component={LoginScreen} />
+          <Route exact path="/cocinero" component = {NavegacionCocinero}/>
           <Route path="/" component={NavegacionPrincipal} />
         </Switch>
       </div>

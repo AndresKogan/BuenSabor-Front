@@ -1,12 +1,11 @@
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router'
-
-import ComidaScreen from '../componentes/ComidaScreen'
-
-import PlatoScreen from '../componentes/platos/PlatoScreen'
+import { CartScreen } from '../componentes/CartScreen'
 import { SearchScreen } from '../componentes/search/SearchScreen'
-
 import { Navbar } from '../componentes/ui/Navbar'
+import ComidaScreen from '../componentes/ComidaScreen'
+import PlatoScreen from '../componentes/platos/PlatoScreen'
+
 
 const NavegacionPrincipal = () => {
     return (
@@ -16,11 +15,13 @@ const NavegacionPrincipal = () => {
 
                 <Switch>
          
-                    <Route exact path="/:comida" component={ComidaScreen}/>
-                    <Route exact path="/plato/:platoId" component={PlatoScreen} />
-                    <Route exact path="/search" component={SearchScreen}/>
 
-                    <Redirect to="/" />
+                  
+                    <Route exact path="/search" component={SearchScreen}/>
+                    <Route exact path="/carrito" component={CartScreen}/>
+                    <Route exact path="/:comida" component={ComidaScreen}/>
+                      <Route exact path="/plato/:platoId" component={PlatoScreen} />
+                    {/* <Redirect to="/" /> */}
                 </Switch>
 
             </div>

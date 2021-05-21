@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import ListaPlato from './platos/ListaPlato';
 
 const ComidaScreen = () => {

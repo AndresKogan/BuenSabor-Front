@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ListaContext } from '../ListaContext';
+
 
 export const TarjetaPlato = ({
 
@@ -9,6 +11,18 @@ export const TarjetaPlato = ({
     descripcion,
     
 }) => {
+
+  
+    const {lista, setLista} = useContext(ListaContext);
+ 
+   
+
+    const handleClick = () => {
+
+       setLista([...lista, id]);
+    }
+
+   
     return (
         <div className="card ms-4" style={{maxWidth:540}}>
             <div className="row no-gutters">
@@ -22,11 +36,14 @@ export const TarjetaPlato = ({
                            <p className="card-text">{descripcion}</p>
                            <h4 >${Precio}</h4>
                 </div>
-
-                <Link to={`./plato/${id}`}>
-                            Más...
-
+<div className="row">
+  <Link to={`./plato/${id}`}>
+                            Detalles
                         </Link>
+
+                 <button className="btn btn-primary" onClick={handleClick}> Agregar al Carrito</button>
+</div>
+              
      
                 </div>
             </div>

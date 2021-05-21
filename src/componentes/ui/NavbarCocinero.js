@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 
-export const Navbar = () => {
+export const NavBarCocinero = () => {
 
 
     const validGrupos = ['Hamburguesas', 'Papas', 'Pizzas', 'Lomos'];
@@ -22,48 +22,23 @@ export const Navbar = () => {
            
             <div className="navbar-collapse">
                 <div className="navbar-nav">
-                    {
-                    validGrupos.map(grupo => (
+                   
                       <NavLink 
-                      key={grupo}
+                 
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to={grupo}
+                        to="/cocinero/platos"
                     >
-                        {grupo}
+                       Platos Cocinero
                     </NavLink> )  )
-}
+
 
                     
                 </div>
             </div>
 
-            <div className="">
-                <ul className="navbar-nav ml-auto">
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/carrito"
-                    >
-                        Carrito
-                    </NavLink>
-                </ul>
-            </div>
-
-            <div className="">
-                <ul className="navbar-nav ml-auto">
-                    <NavLink 
-                        activeClassName="active"
-                        className="nav-item nav-link" 
-                        exact
-                        to="/search"
-                    >
-                        Buscar
-                    </NavLink>
-                </ul>
-            </div>
+            
             <div className="">
                 <ul className="navbar-nav ml-auto">
                     <NavLink 
