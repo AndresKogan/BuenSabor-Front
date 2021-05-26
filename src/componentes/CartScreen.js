@@ -5,8 +5,7 @@ import { ListaContext } from './ListaContext';
 export const CartScreen = () => {
 
    const {lista} = useContext(ListaContext)
-   console.log("papad")
-   console.log(lista)
+ 
 
     return (
         <div>

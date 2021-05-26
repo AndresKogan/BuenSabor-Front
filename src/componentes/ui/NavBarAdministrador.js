@@ -3,10 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 
-export const NavBarCocinero = () => {
+export const NavBarAdministrador = () => {
 
 
-    const validGrupos = ['Hamburguesas', 'Papas', 'Pizzas', 'Lomos'];
 
 
     return (
@@ -14,7 +13,7 @@ export const NavBarCocinero = () => {
             
             <Link 
                 className="navbar-brand" 
-                to="/cocinero"
+                to="/administrador"
             >
                 El Buen Sabor
             </Link>
@@ -28,9 +27,26 @@ export const NavBarCocinero = () => {
                         activeClassName="active"
                         className="nav-item nav-link" 
                         exact
-                        to="/cocinero/platos"
+                        to="/administrador/stock"
                     >
-                       Platos Cocinero
+                       stock
+                    </NavLink> )  )
+
+
+                    
+                </div>
+            </div>
+            <div className="navbar-collapse">
+                <div className="navbar-nav">
+                   
+                      <NavLink 
+                 
+                        activeClassName="active"
+                        className="nav-item nav-link" 
+                        exact
+                        to="/administrador/empleados"
+                    >
+                       empleados
                     </NavLink> )  )
 
 

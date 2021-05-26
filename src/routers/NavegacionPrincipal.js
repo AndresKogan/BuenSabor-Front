@@ -29,4 +29,4 @@ const NavegacionPrincipal = () => {
     )
 }
 
-export default NavegacionPrincipal
+export default NavegacionPrincipal;
