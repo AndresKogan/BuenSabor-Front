@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ListaContext } from '../ListaContext';
 
 
-export const TarjetaPlato = ({
+export const TarjetaCarro = ({
 
     id,
     plato,
@@ -12,15 +12,20 @@ export const TarjetaPlato = ({
     
 }) => {
 
-
+  
   
     const {lista, setLista} = useContext(ListaContext);
  
    
 
-    const handleClick = () => {
+    const handleClick = (idButton) => {
+        console.log(idButton)
+        console.log(lista)
+        const listaNueva = lista.splice(lista.indexOf(idButton),1);
+        console.log("nueva ")
+        console.log(listaNueva)
 
-       setLista([...lista, id]);
+       
     }
 
    
@@ -42,7 +47,7 @@ export const TarjetaPlato = ({
                             Detalles
                         </Link>
 
-                 <button className="btn btn-primary" onClick={handleClick}> Agregar al Carrito</button>
+                 <button className="btn btn-danger" onClick={handleClick(id)}> Quitar</button>
 </div>
               
      

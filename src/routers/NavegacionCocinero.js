@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router'
+import {  CocineroParaCocinar } from '../componentes/CocineroParaCocinar'
 
 import { PlatosCocinero } from '../componentes/platos/PlatosCocinero'
 
@@ -16,7 +17,7 @@ const NavegacionCocinero = () => {
                 <Switch>
          
 
-                  
+                <Route exact path="/cocinero" component={CocineroParaCocinar}/>
                     <Route exact path="/cocinero/platos" component={PlatosCocinero}/>
                   
                     {/* <Redirect to="/" /> */}

@@ -16,7 +16,7 @@ export const NavBarCocinero = () => {
                 className="navbar-brand" 
                 to="/cocinero"
             >
-                El Buen Sabor
+                Pedidos Para Cocinar
             </Link>
            
            
@@ -36,6 +36,10 @@ export const NavBarCocinero = () => {
 
                     
                 </div>
+            
+
+           
+           
             </div>
 
             

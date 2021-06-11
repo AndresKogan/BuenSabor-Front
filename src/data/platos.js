@@ -14,9 +14,20 @@ export const platos = [
         'plato': 'Hamburguesa Simple',
         'grupo': 'Hamburguesas',
         'Precio': '365',
+        'costo': '125' ,
+        'tiempo de preparación': '20',
         'descripción': 'Hamburguesa de carne con tomate, lechuga y queso',
         'ingredientes': ['medallon de carne', 'pan de hamburgesa',
-            'feta de queso', 'rodaja tomate', 'hoja lechuga']
+            'feta de queso', 'rodaja tomate'],
+        'insumos':{
+            'carne': '250 gr',
+            'pan de hamburguesa':'1 unidad',
+            'feta de queso': '100gr',
+            'tomate': '1 unidad',
+
+        }
+
+        
     },
     {
         'id': '3',

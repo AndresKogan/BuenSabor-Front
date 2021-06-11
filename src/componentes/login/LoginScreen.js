@@ -22,7 +22,7 @@ const LoginScreen = ({ history }) => {
     const handleLogin = () => {
         if (isFormValid) {
             dispatch({
-                type: types.administrador,
+                type: types.cocinero,
                 payload: {
                     name: 'Andres',
                   

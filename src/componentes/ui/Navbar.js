@@ -1,27 +1,41 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
+import { getGrupos } from '../../selectors/getPlatosPorGrupo';
 import { types } from '../../types/types';
 
 
 
 export const Navbar = () => {
 
-    const {user, dispatch} = useContext(AuthContext);
+    const { user, dispatch } = useContext(AuthContext);
     const history = useHistory();
+    const [validGrupos, setValidGrupos] = useState(null)
 
-    const validGrupos = ['Hamburguesas', 'Papas', 'Pizzas', 'Lomos'];
+    useEffect(() => {
+        getGrupos()
+        .then(grupo => grupo.filter(elemento => elemento.denominacion !== "Ingredientes"))
+        .then(grupo => setValidGrupos(grupo))
+        
+
+     } , [])
+
+  
+
 
     const handleLogout = () => {
 
         history.replace("/login");
         dispatch({
             type: types.clienteNotLogged
-           
+
         })
 
     }
-
+  
+    if (validGrupos === null) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -37,27 +51,28 @@ export const Navbar = () => {
             <div className="navbar-collapse">
                 <div className="navbar-nav">
                     {
-                        validGrupos.map(grupo => (
+                        validGrupos.map(grupo =>
+
                             <NavLink
-                                key={grupo}
-                                activeClassName="active"
+                                key={grupo.id}
+                                activeclassname="active"
                                 className="nav-item nav-link"
                                 exact
-                                to={grupo}
+                                to={`/${grupo.denominacion}`}
                             >
-                                {grupo}
-                            </NavLink>))
+                                {grupo.denominacion}
+                            </NavLink>)
                     }
 
 
                 </div>
             </div>
             <span className="nav-item nav-link text-info">
-                 {user.name}</span>
+                {user.name}</span>
 
             <ul className="navbar-nav ml-auto">
                 <NavLink
-                    activeClassName="active"
+                    activeclassname="active"
                     className="nav-item nav-link"
                     exact
                     to="/carrito"
@@ -70,7 +85,7 @@ export const Navbar = () => {
 
             <ul className="navbar-nav ml-auto">
                 <NavLink
-                    activeClassName="active"
+                    activeclassname="active"
                     className="nav-item nav-link"
                     exact
                     to="/search"
@@ -81,10 +96,10 @@ export const Navbar = () => {
 
             <ul className="navbar-nav ml-auto">
                 <button
-                    activeClassName="active"
+                    activeclassname="active"
                     className="nav-item nav-link btn"
                     onClick={handleLogout}
-                  
+
                 >
                     Logout
                     </button>

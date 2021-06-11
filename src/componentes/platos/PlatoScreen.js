@@ -1,17 +1,19 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Redirect, useParams } from 'react-router'
 import { getPlatosPorId } from '../../selectors/getPlatosPorId';
 
 
 const PlatoScreen = ({history}) => {
 
-   
+   const [platoEncontrado, setPlatoEncontrado] = useState({})
 
     const { platoId } = useParams();
 
+// getPlatosPorId(platoId)
+// .then(plato => setPlatoEncontrado(plato))
 
-
-    const platoEncontrado = useMemo(() => getPlatosPorId(platoId),[platoId]) ;
+  useMemo(() => getPlatosPorId(platoId).then(plato =>setPlatoEncontrado(plato)),[platoId]) ;
+    
 
     if (!platoEncontrado) {
         return <Redirect to="/" />
@@ -26,16 +28,17 @@ const PlatoScreen = ({history}) => {
         }
     }
     const {
+        id,
         plato,
-        Precio,
-        descripcion } = platoEncontrado;
+        PrecioVenta,
+        Descripcion } = platoEncontrado;
 
     return (
         <div className="row mt-5">
             <div className="col-4">
                 <img
                     src={`../assets/imagenes/${platoId}.jpg`}
-                    alt={plato}
+                    alt={id}
                     className="img-thumbnail animate__animated animate__fadeInLeft"
                 />
             </div>
@@ -43,8 +46,8 @@ const PlatoScreen = ({history}) => {
             <div className="col-8">
                 <h3>{plato}</h3>
                 <ul className="list-group list-group-flush animate__animated animate__fadeIn">
-                    <li className="list-group-item"> <b>${Precio}</b></li>
-                    <li className="list-group-item"> {descripcion}</li>
+                    <li className="list-group-item"> <b>${PrecioVenta}</b></li>
+                    <li className="list-group-item"> {Descripcion}</li>
 
                 </ul>
 

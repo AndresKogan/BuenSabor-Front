@@ -1,11 +1,22 @@
 import React from 'react';
-import {platos} from '../data/platos';
+import { platos } from '../data/platos';
 
 
-export const getPlatosPorId = (id) => {
+export const getPlatosPorId = async (id) => {
+
+    const url = `https://localhost:44350/api/Articulos/ParaFront/${id}`;
+    const resp = await fetch(url, {
+        method: "GET",
+    })
+  
+    const data = await resp.json()
 
 
+  
+   
 
-    return platos.find(plato => plato.id === id) ;
+
+  
+    return data;
 
 }

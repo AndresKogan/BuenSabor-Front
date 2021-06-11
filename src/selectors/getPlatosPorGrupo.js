@@ -1,16 +1,35 @@
-import {platos} from '../data/platos';
+
+export const getGrupos = async () => {
+
+     const url = `https://localhost:44350/api/RubrosArticulos`;
+    const resp = await fetch(url, {
+        method: "GET",
+    })
+    const data = await resp.json();
 
 
-export const getPlatosPorGrupo = (grupo) => {
+ 
 
-    const validGrupos = ['Hamburguesas', 'Papas', 'Pizzas', 'Lomos'];
 
-    if (!validGrupos.includes(grupo)) {
-        throw new Error (`no existe el grupo "${grupo}"`);
-    }
-
-    return platos.filter(plato => plato.grupo === grupo) ;
+    return data;
 
 }
+
+export const getPlatosPorGrupo = async () => {
+
+    const url = `https://localhost:44350/api/Articulos/ParaFront`;
+   const resp = await fetch(url, {
+       method: "GET",
+   })
+   const data = await resp.json();
+
+
+
+
+
+   return data;
+
+}
+
 
 

@@ -1,11 +1,9 @@
 import React from 'react'
 
-const inicio = () => {
+export const CocineroParaCocinar = () => {
     return (
         <div>
-            inicio
+            Platos para aprobar
         </div>
     )
 }
-
-export default inicio
